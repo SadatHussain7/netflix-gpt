@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import Header from "./Header";
-import { BACKGROUND_IMAGE_URL } from "../utils/Constants";
+import { BACKGROUND_IMAGE_URL, USER_AVATAR_URL } from "../utils/Constants";
 import { validateData } from "../utils/validate";
 import {
   createUserWithEmailAndPassword,
@@ -8,12 +8,10 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
 
 const Login = () => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const [isSigninForm, setIsSigninForm] = useState(true);
@@ -38,7 +36,6 @@ const Login = () => {
     if (message) return;
 
     //Sign in or Sign up logic
-
     if (!isSigninForm) {
       createUserWithEmailAndPassword(
         auth,
@@ -49,13 +46,11 @@ const Login = () => {
           const user = userCredential.user;
           updateProfile(user, {
             displayName: name.current.value,
-            photoURL:
-              "https://englishtribuneimages.blob.core.windows.net/gallary-content/2023/9/2023_9$largeimg_2030637279.jpg",
+            photoURL: USER_AVATAR_URL,
           })
             .then(() => {
               const { uid, email, displayName, photoURL } = auth.currentUser;
               dispatch(addUser({ uid, email, displayName, photoURL }));
-              navigate("/browse");
             })
             .catch((error) => {
               setErrorMessage(error.message);
@@ -74,15 +69,6 @@ const Login = () => {
       )
         .then((userCredential) => {
           const user = userCredential.user;
-          // dispatch(
-          //   addUser({
-          //     uid: user.uid,
-          //     email: user.email,
-          //     displayName: user.displayName,
-          //     photoURL: user.photoURL,
-          //   })
-          // );
-          navigate("/browse");
         })
         .catch((error) => {
           const errorCode = error.code;

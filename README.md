@@ -89,6 +89,11 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 - Created a redux store with user slice 
 - Implemented sign out
 - Update profile  
+- Register TMDB API and create an app and get the access token
+- GET the data for now playing movies using TMDB APIs
+- Custom hooks implemented
+- Embedded Youtube video and autoplay configured
+
 
 
 
