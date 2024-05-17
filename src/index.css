@@ -1,3 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Custom styles as the scrollbar was not looking good*/
+  .hide-scrollbar::-webkit-scrollbar {
+    width: 0;
+  }
+  
+  .hide-scrollbar:hover::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .hide-scrollbar:hover::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+  }
+  
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .hide-scrollbar:hover {
+    -ms-overflow-style: auto;
+    scrollbar-width: thin;
+  }
