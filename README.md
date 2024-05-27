@@ -95,7 +95,11 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 - Embedded Youtube video and autoplay configured
 - GPT Search Feature
 - Multilinguage support 
-- Integrate GPT APIs
+- Integrate GPT APIs - Open API
+- GPT search API call
+- Memoization
+- Adding .env file
+- Made the site UI responsive 
 
 
 
