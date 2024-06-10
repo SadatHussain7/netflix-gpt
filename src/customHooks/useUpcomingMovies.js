@@ -1,4 +1,4 @@
-import { API_OPTIONS, NOW_PLAYING_MOVIE_URL } from "../utils/Constants";
+import { API_OPTIONS } from "../utils/Constants";
 import { useDispatch } from "react-redux";
 import { addUpcomingMovies } from "../utils/movieSlice";
 import { useEffect } from "react";
